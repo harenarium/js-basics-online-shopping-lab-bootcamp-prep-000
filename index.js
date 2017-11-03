@@ -54,9 +54,14 @@ function total() {
 }
 
 function removeFromCart(name) {
-
-  if(cart[name]!==null){
-    delete cart[name] //i prob need to delete from cart. need to find place of obj in array
+  var index = -1
+  for(n=0;n<cart.length;n++){
+    if(cart[n].hasOwnProperty(name)){
+      index = n
+    }
+  }
+  if(index>=0){
+    cart.splice(index,1)
   }else{
     console.log("That item is not in your cart.")
     return cart
@@ -65,7 +70,7 @@ function removeFromCart(name) {
 
 function placeOrder(cardNumber) {
   if(cardNumber===parseInt(cardNumber,10)){
-    var sum = total //need ()?
+    var sum = total() //need ()? yes
     console.log(`Your total cost is $${sum}, which will be charged to the card ${cardNumber}.`)
     cart = []
   } else {
