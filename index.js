@@ -55,7 +55,7 @@ function total() {
 
 function removeFromCart(name) {
   var index = -1
-  for(n=0;n<cart.length;n++){
+  for(n=0;n<cart.length;n++){ //run through cart testing each index for name
     if(cart[n].hasOwnProperty(name)){
       index = n
     }
